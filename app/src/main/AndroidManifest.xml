@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashScreenActivity"></activity>
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
