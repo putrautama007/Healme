@@ -20,7 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 try {
                     var waited = 0
                     while (waited < 3500) {
-                        Thread.sleep(100)
+                        sleep(100)
                         waited += 100
                     }
                     val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
