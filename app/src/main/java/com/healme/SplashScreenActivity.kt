@@ -1,14 +1,20 @@
 package com.healme
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 
 class SplashScreenActivity : AppCompatActivity() {
+    private lateinit var app_name:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+
+        app_name = findViewById(R.id.tv_app_name)
+        app_name.typeface = Typeface.createFromAsset(assets, "fonts/Qualio.ttf")
         startAnimation()
     }
 
