@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_container"
+    android:background="@android:color/white"
+    android:clickable="true"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/btn_bottom_sheet"
+        android:background="@drawable/rounded_grey"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:layout_width="32dp"
+        android:layout_height="8dp"/>
+
+    <TextView
+        android:id="@+id/tv_apotek_name"
+        android:text="Nama Apotek"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_apotek_location"
+            android:text="Lokasi Apotek"
+            android:textSize="15sp"
+            android:layout_weight="1.7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="0.3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Open for"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_open_for"
+                android:text="24 H"
+                android:textAlignment="textEnd"
+                android:layout_marginEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_see_more"
+            android:text="See More"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_red"
+            android:textAllCaps="false"
+            android:layout_marginEnd="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" />
+
+
+        <Button
+            android:id="@+id/btn_direct"
+            android:text="Direct"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_green"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp" />
+    </LinearLayout>
+</LinearLayout>
