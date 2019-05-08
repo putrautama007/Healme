@@ -40,7 +40,7 @@
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="barcode" />
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
