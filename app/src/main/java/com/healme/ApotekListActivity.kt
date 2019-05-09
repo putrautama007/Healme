@@ -21,8 +21,8 @@ class ApotekListActivity : AppCompatActivity() {
         apotek_recyclerView.layoutManager = layoutManager
         apotek_recyclerView.adapter = adapter
 
-        apoteks.add(Apotek("1","Apotek 24"))
-        apoteks.add(Apotek("2","Apotek K"))
+        apoteks.add(Apotek("1",0))
+        apoteks.add(Apotek("2",0))
         adapter.notifyDataSetChanged()
     }
 

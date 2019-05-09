@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:id="@+id/parent_apotek_item">
 
     <ImageView
         android:id="@+id/img_foto_apotek"
@@ -17,6 +18,7 @@
         app:srcCompat="@drawable/apotek1" />
 
     <LinearLayout
+        android:id="@+id/btn_apotek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
