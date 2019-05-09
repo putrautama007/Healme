@@ -4,4 +4,9 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="scan">Scan</string>
+    <string name="cough">Cough</string>
+    <string name="sneeze">Sneeze</string>
+    <string name="headache">Headache</string>
+    <string name="see_all">See All</string>
+    <string name="apotek">Apotek</string>
 </resources>

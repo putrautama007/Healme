@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.healme.main.MainActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private lateinit var app_name:TextView

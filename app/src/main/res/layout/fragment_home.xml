@@ -1,14 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Fragment" />
+        android:id="@+id/tv_cough"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cough"
+        app:layout_constraintEnd_toEndOf="@+id/btn_cough"
+        app:layout_constraintStart_toStartOf="@+id/btn_cough"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cough" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_sneeze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sneeze"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_cough"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sneeze"
+        app:layout_constraintStart_toStartOf="@+id/btn_sneeze"
+        app:layout_constraintTop_toTopOf="@+id/tv_cough" />
+
+    <TextView
+        android:id="@+id/tv_headache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/headache"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_sneeze"
+        app:layout_constraintEnd_toEndOf="@+id/btn_headache"
+        app:layout_constraintStart_toStartOf="@+id/btn_headache"
+        app:layout_constraintTop_toTopOf="@+id/tv_sneeze" />
+
+    <TextView
+        android:id="@+id/tv_see_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/see_all"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_headache"
+        app:layout_constraintEnd_toEndOf="@+id/btn_see_all"
+        app:layout_constraintStart_toStartOf="@+id/btn_see_all"
+        app:layout_constraintTop_toTopOf="@+id/tv_headache" />
+
+    <ImageButton
+        android:id="@+id/btn_cough"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_batuk"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sneeze"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_sneeze"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_flu"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cough"
+        app:layout_constraintEnd_toStartOf="@+id/btn_headache"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_cough"
+        app:layout_constraintTop_toTopOf="@+id/btn_cough" />
+
+    <ImageButton
+        android:id="@+id/btn_headache"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_headache"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_sneeze"
+        app:layout_constraintEnd_toStartOf="@+id/btn_see_all"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_sneeze"
+        app:layout_constraintTop_toTopOf="@+id/btn_sneeze" />
+
+    <ImageButton
+        android:id="@+id/btn_see_all"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_see_all"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_headache"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_headache"
+        app:layout_constraintTop_toTopOf="@+id/btn_headache" />
+
+    <TextView
+        android:id="@+id/tv_pharmacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/apotek"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cough" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_apotek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pharmacy"
+        app:layout_constraintVertical_bias="0.0" />
+</android.support.constraint.ConstraintLayout>

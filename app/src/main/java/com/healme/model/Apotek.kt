@@ -1,4 +1,6 @@
 package com.healme.model
 
-class Apotek(var id: String,
-             var nama: String? = null)
+data class Apotek(
+    var nama: String,
+    var foto: Int
+)
