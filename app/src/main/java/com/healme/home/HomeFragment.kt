@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.healme.R
 import com.healme.model.Apotek
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,8 +32,8 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        listApotek.add(Apotek("apotek 24",R.drawable.apotek1))
-        listApotek.add(Apotek("apotek 42",R.drawable.apotek2))
+//        listApotek.add(Apotek("apotek 24",R.drawable.apotek1))
+//        listApotek.add(Apotek("apotek 42",R.drawable.apotek2))
 
         recyclerView = view.findViewById(R.id.rv_apotek)
         adapter = ApotekAdapter(requireContext(), listApotek)

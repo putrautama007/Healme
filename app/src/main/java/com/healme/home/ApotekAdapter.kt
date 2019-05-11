@@ -22,7 +22,7 @@ class ApotekAdapter(private val context: Context, private val listApotek: List<A
 
 class ApotekViewHolder(view: View, private val context: Context): RecyclerView.ViewHolder(view) {
     fun bindItem(apotek: Apotek){
-        itemView.img_foto_apotek.setImageResource(apotek.foto)
+//        itemView.img_foto_apotek.setImageResource(apotek.foto)
         itemView.tv_nama_apotek.text = apotek.nama
     }
 }
