@@ -1,9 +1,12 @@
 package com.healme
 
+import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.support.design.widget.BottomSheetBehavior
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 
@@ -53,9 +56,26 @@ class ApotekLocationActivity : AppCompatActivity(), OnMapReadyCallback, View.OnC
         Handler().postDelayed(object : Runnable {
             override fun run() {
                 bottomSheetBehavior.peekHeight =
-                        tv_apotek_name.measuredHeight + btn_bottom_sheet.measuredHeight + 350
-
-
+                        tv_apotek_name.measuredHeight + btn_bottom_sheet.measuredHeight + 375
+                tv_apotek_name.text = intent.getStringExtra("nama")
+                tv_apotek_location.text = intent.getStringExtra("lokasi")
+                btn_direct.setOnClickListener{
+                    val gmmIntentUri = Uri.parse("google.navigation:q=${intent.
+                            getDoubleExtra("latitude",0.0)},${intent.
+                            getDoubleExtra("longitude",0.0)}")
+                    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                    mapIntent.setPackage("com.google.android.apps.maps")
+                    startActivity(mapIntent)
+                }
+                btn_see_more.setOnClickListener {
+                    val id = intent.getIntExtra("id",0)
+                    val namaApotek = intent.getStringExtra("nama")
+                    Log.d("apotekId", "$id")
+                    val intent = Intent(this@ApotekLocationActivity,SeeMoreActivity::class.java)
+                    intent.putExtra("id", id)
+                    intent.putExtra("nama",namaApotek)
+                    startActivity(intent)
+                }
             }
         }, 1)
     }
@@ -64,8 +84,9 @@ class ApotekLocationActivity : AppCompatActivity(), OnMapReadyCallback, View.OnC
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        val sydney = LatLng(intent.getDoubleExtra("latitude",0.0), intent.getDoubleExtra("longitude",0.0))
+        mMap.addMarker(MarkerOptions().position(sydney).title("${intent.getStringExtra("nama")}"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mMap.setMinZoomPreference(16F)
     }
 }

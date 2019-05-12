@@ -15,14 +15,11 @@ import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOption
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.healme.ApotekListActivity
 import com.healme.R
-import com.healme.ScanFragment
-import com.healme.SearchFragment
-import com.healme.home.HomeFragment
+import com.healme.fragment.SearchFragment
+import com.healme.fragment.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.pm.PackageManager
 import android.os.Build
-import android.R.attr.data
-import android.support.v4.app.NotificationCompat.getExtras
 import android.app.Activity
 
 
@@ -34,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.healme.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         loadFragment(HomeFragment())
 

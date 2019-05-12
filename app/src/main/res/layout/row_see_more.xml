@@ -4,6 +4,8 @@
     android:id="@+id/cv_obat"
     app:cardCornerRadius="10dp"
     android:elevation="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -16,24 +18,16 @@
             android:id="@+id/iv_obat"
             android:background="@color/colorPrimaryDark"
             android:layout_margin="16dp"
-            android:layout_width="96dp"
-            android:layout_height="120dp" />
+            android:layout_width="150dp"
+            android:layout_height="150dp" />
 
         <TextView
             android:id="@+id/tv_nama_obat"
             android:text="Nama Obat"
             android:textStyle="bold"
-            android:textSize="15sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/tv_harga_obat"
-            android:text="harga Obat"
-            android:textSize="13sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
