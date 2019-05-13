@@ -10,9 +10,9 @@ interface ApiInterface {
 //    @GET("bins/s41pe")
 //    fun getApotek(): Call<List<Apotek>>
 
-    @GET("bins/948hy")
+    @GET("bins/1dtxxi")
     fun getApotek(): Call<List<Apotek>>
 
-    @GET("bins/1euq06")
+    @GET("bins/h0qs6")
     fun getObat(): Call<List<Obat>>
 }
