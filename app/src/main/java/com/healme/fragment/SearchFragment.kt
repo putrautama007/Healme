@@ -95,7 +95,7 @@ class SearchFragment : Fragment() {
 
                         adapterObat = SeeMoreAdapter(context!!, listObat)
                         recyclerView.adapter = adapterObat
-                        recyclerView.layoutManager = GridLayoutManager(context, 2)
+                        recyclerView.layoutManager = GridLayoutManager(context, 3)
                     }
                 }
             })

@@ -43,11 +43,13 @@ class SeeMoreActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loadDataObat(id: Int) {
+        seeMore_progressBar.visibility = View.VISIBLE
         val apotekResponse = ApiClient.create().getApotek()
         var obatList: List<Obat>
         apotekResponse.enqueue(object : Callback<List<Apotek>> {
             override fun onFailure(call: Call<List<Apotek>>, t: Throwable) {
                 t.printStackTrace()
+                seeMore_progressBar.visibility = View.GONE
             }
 
             override fun onResponse(call: Call<List<Apotek>>, response: Response<List<Apotek>>) {
@@ -56,20 +58,23 @@ class SeeMoreActivity : AppCompatActivity(), View.OnClickListener {
                         obatList = it.obat!!
                         adapter = SeeMoreAdapter(this@SeeMoreActivity, obatList)
                         recyclerView.adapter = adapter
-                        recyclerView.layoutManager = GridLayoutManager(this@SeeMoreActivity, 2, LinearLayoutManager.VERTICAL, false)
+                        recyclerView.layoutManager = GridLayoutManager(this@SeeMoreActivity, 3, LinearLayoutManager.VERTICAL, false)
                     }
                 }
+                seeMore_progressBar.visibility = View.GONE
 
             }
         })
     }
 
     private fun loadDataObat(kategori: String) {
+        seeMore_progressBar.visibility = View.VISIBLE
         val obatResponse = ApiClient.create().getObat()
         val obatList: MutableList<Obat> = mutableListOf()
         obatResponse.enqueue(object : Callback<List<Obat>> {
             override fun onFailure(call: Call<List<Obat>>, t: Throwable) {
                 t.printStackTrace()
+                seeMore_progressBar.visibility = View.GONE
             }
 
             override fun onResponse(call: Call<List<Obat>>, response: Response<List<Obat>>) {
@@ -78,7 +83,7 @@ class SeeMoreActivity : AppCompatActivity(), View.OnClickListener {
                         obatList.add(it)
                         adapter = SeeMoreAdapter(this@SeeMoreActivity, obatList)
                         recyclerView.adapter = adapter
-                        recyclerView.layoutManager = GridLayoutManager(this@SeeMoreActivity, 2)
+                        recyclerView.layoutManager = GridLayoutManager(this@SeeMoreActivity, 3)
                     }
                 else
                     response.body()?.forEach {
@@ -86,9 +91,10 @@ class SeeMoreActivity : AppCompatActivity(), View.OnClickListener {
                             obatList.add(it)
                             adapter = SeeMoreAdapter(this@SeeMoreActivity, obatList)
                             recyclerView.adapter = adapter
-                            recyclerView.layoutManager = GridLayoutManager(this@SeeMoreActivity, 2)
+                            recyclerView.layoutManager = GridLayoutManager(this@SeeMoreActivity, 3)
                         }
                     }
+                seeMore_progressBar.visibility = View.GONE
             }
         })
     }

@@ -14,8 +14,10 @@ import android.widget.ImageButton
 import com.healme.R
 import com.healme.SeeMoreActivity
 import com.healme.adapter.ApotekRecyclerAdapter
+import com.healme.adapter.SeeMoreAdapter
 import com.healme.helper.ApiClient
 import com.healme.model.Apotek
+import com.healme.model.Obat
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,6 +25,7 @@ import retrofit2.Response
 
 class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
+    private lateinit var rvObat: RecyclerView
     private lateinit var adapter: ApotekRecyclerAdapter
     private val listApotek: MutableList<Apotek> = mutableListOf()
     private lateinit var btnBatuk: ImageButton
@@ -35,7 +38,8 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         recyclerView = view.findViewById(R.id.rv_apotek)
-        adapter = ApotekRecyclerAdapter(context!!, listApotek)
+        rvObat = view.findViewById(R.id.rv_obat)
+        adapter = ApotekRecyclerAdapter(context!!, listApotek, R.layout.item_apotek)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
@@ -69,6 +73,7 @@ class HomeFragment : Fragment() {
         }
 
         getListApotek()
+        getListObat()
         return view
     }
 
@@ -85,6 +90,25 @@ class HomeFragment : Fragment() {
                     Log.d("data foto", "${it.foto}")
                 }
                 adapter.notifyDataSetChanged()
+            }
+        })
+    }
+
+    private fun getListObat(){
+        val obatResponse = ApiClient.create()
+        val obatList: MutableList<Obat> = mutableListOf()
+        obatResponse.getObat().enqueue(object : Callback<List<Obat>>{
+            override fun onFailure(call: Call<List<Obat>>, t: Throwable) {
+                t.printStackTrace()
+            }
+
+            override fun onResponse(call: Call<List<Obat>>, response: Response<List<Obat>>) {
+                obatList.addAll(response.body()!!)
+                val layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                val adapter = context?.let { SeeMoreAdapter(it,obatList) }
+                rvObat.layoutManager = layoutManager
+                rvObat.adapter = adapter
+                adapter?.notifyDataSetChanged()
             }
         })
     }
