@@ -16,6 +16,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.activity_apotek_location.*
 import kotlinx.android.synthetic.main.bottom_sheet_apotek.*
 import org.jetbrains.anko.startActivity
 
@@ -29,11 +30,8 @@ class ApotekLocationActivity : AppCompatActivity(), OnMapReadyCallback, View.OnC
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
                 }
             }
-            btn_direct ->{
-
-            }
-            btn_see_more ->{
-                startActivity<SeeMoreActivity>()
+            back_location ->{
+                onBackPressed()
             }
         }
     }
@@ -52,30 +50,27 @@ class ApotekLocationActivity : AppCompatActivity(), OnMapReadyCallback, View.OnC
         btn_bottom_sheet.setOnClickListener(this)
         btn_see_more.setOnClickListener(this)
         btn_direct.setOnClickListener(this)
+        back_location.setOnClickListener(this)
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet_container)
-        Handler().postDelayed(object : Runnable {
-            override fun run() {
-                bottomSheetBehavior.peekHeight =
-                        tv_apotek_name.measuredHeight + btn_bottom_sheet.measuredHeight + 375
-                tv_apotek_name.text = intent.getStringExtra("nama")
-                tv_apotek_location.text = intent.getStringExtra("lokasi")
-                btn_direct.setOnClickListener{
-                    val gmmIntentUri = Uri.parse("google.navigation:q=${intent.
-                            getDoubleExtra("latitude",0.0)},${intent.
-                            getDoubleExtra("longitude",0.0)}")
-                    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-                    mapIntent.setPackage("com.google.android.apps.maps")
-                    startActivity(mapIntent)
-                }
-                btn_see_more.setOnClickListener {
-                    val id = intent.getIntExtra("id",0)
-                    val namaApotek = intent.getStringExtra("nama")
-                    Log.d("apotekId", "$id")
-                    val intent = Intent(this@ApotekLocationActivity,SeeMoreActivity::class.java)
-                    intent.putExtra("id", id)
-                    intent.putExtra("nama",namaApotek)
-                    startActivity(intent)
-                }
+        Handler().postDelayed({
+            bottomSheetBehavior.peekHeight =
+                    tv_apotek_name.measuredHeight + btn_bottom_sheet.measuredHeight + 375
+            tv_apotek_name.text = intent.getStringExtra("nama")
+            tv_apotek_location.text = intent.getStringExtra("lokasi")
+            btn_direct.setOnClickListener{
+                val gmmIntentUri = Uri.parse("google.navigation:q=${intent.getDoubleExtra("latitude",0.0)},${intent.getDoubleExtra("longitude",0.0)}")
+                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                mapIntent.setPackage("com.google.android.apps.maps")
+                startActivity(mapIntent)
+            }
+            btn_see_more.setOnClickListener {
+                val id = intent.getIntExtra("id",0)
+                val namaApotek = intent.getStringExtra("nama")
+                Log.d("apotekId", "$id")
+                val intent = Intent(this@ApotekLocationActivity,SeeMoreActivity::class.java)
+                intent.putExtra("id", id)
+                intent.putExtra("nama",namaApotek)
+                startActivity(intent)
             }
         }, 1)
     }

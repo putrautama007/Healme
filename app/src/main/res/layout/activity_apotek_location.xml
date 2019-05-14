@@ -6,6 +6,16 @@
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <ImageButton
+        android:elevation="8dp"
+        android:id="@+id/back_location"
+        android:background="@drawable/round_white"
+        android:src="@drawable/ic_chevron_left"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
+
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
