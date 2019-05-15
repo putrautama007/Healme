@@ -24,11 +24,26 @@
             android:background="@color/colorPrimaryDark"
             android:layout_margin="16dp"
             android:scaleType="fitXY"
-            android:layout_width="150dp"
-            android:layout_height="150dp" />
+            android:layout_width="120dp"
+            android:layout_height="120dp" />
 
         <TextView
             android:id="@+id/tv_nama_obat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/iv_obat"
+            app:layout_constraintStart_toStartOf="@+id/iv_obat"
+            app:layout_constraintTop_toBottomOf="@+id/iv_obat" />
+
+        <TextView
+            android:id="@+id/tv_harga_obat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -41,7 +56,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/iv_obat"
             app:layout_constraintStart_toStartOf="@+id/iv_obat"
-            app:layout_constraintTop_toBottomOf="@+id/iv_obat" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_obat" />
     </android.support.constraint.ConstraintLayout>
 
 

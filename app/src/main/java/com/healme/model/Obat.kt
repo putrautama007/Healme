@@ -14,4 +14,6 @@ data class Obat(@SerializedName("id") var id: Int? = null,
                 @SerializedName("detail")
                 var detail: String? = null,
                 @SerializedName("foto")
-                var foto: String? = null)
+                var foto: String? = null,
+                @SerializedName("harga")
+                var harga: String? = null)

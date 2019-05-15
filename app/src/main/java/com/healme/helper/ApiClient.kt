@@ -7,7 +7,7 @@ object ApiClient {
     fun create(): ApiInterface {
         val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://api.myjson.com/")
+                .baseUrl("https://api.npoint.io/")
                 .build()
         return retrofit.create(ApiInterface::class.java)
     }

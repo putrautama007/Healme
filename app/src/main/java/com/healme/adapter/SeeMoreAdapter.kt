@@ -25,6 +25,7 @@ class SeeMoreAdapter(val context: Context, val obat: List<Obat>) : RecyclerView.
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
        val obat = obat[p1]
         p0.namaObat.text = obat.nama
+        p0.hargaObat.text = obat.harga
         Glide.with(context).load(obat.foto).into(p0.fotoObat)
         val detailObat = Gson().toJson(obat)
         p0.cvObat.setOnClickListener {
@@ -38,5 +39,6 @@ class SeeMoreAdapter(val context: Context, val obat: List<Obat>) : RecyclerView.
         val namaObat = itemview.tv_nama_obat
         val fotoObat = itemview.iv_obat
         val cvObat = itemview.cv_obat
+        val hargaObat = itemview.tv_harga_obat
     }
 }

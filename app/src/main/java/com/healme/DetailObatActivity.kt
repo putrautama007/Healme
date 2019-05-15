@@ -23,6 +23,7 @@ class DetailObatActivity : AppCompatActivity(), View.OnClickListener {
         btn_back_obat_details.setOnClickListener(this)
         val obatDetail = Gson().fromJson<Obat>(intent.getStringExtra("obat"),Obat::class.java)
         nama_obat.text = obatDetail.nama
+        harga_obat.text = obatDetail.harga
         Glide.with(this).load(obatDetail.foto).into(iv_obat_detail)
         tv_isi_detail.text = obatDetail.detail
     }

@@ -10,9 +10,15 @@ interface ApiInterface {
 //    @GET("bins/s41pe")
 //    fun getApotek(): Call<List<Apotek>>
 
-    @GET("bins/1dtxxi")
+    //https://api.npoint.io/202f75e8b77c8eb1e60c
+//    @GET("bins/1d51ei")
+//    fun getApotek(): Call<List<Apotek>>
+
+    @GET("202f75e8b77c8eb1e60c")
     fun getApotek(): Call<List<Apotek>>
 
-    @GET("bins/h0qs6")
+//    @GET("bins/h0qs6")
+//    fun getObat(): Call<List<Obat>>
+    @GET("fe8ae63b208e4b1543e4")
     fun getObat(): Call<List<Obat>>
 }
